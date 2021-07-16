@@ -6,7 +6,7 @@ import SignInPage from '../../pages/SignIn';
 
 export const AppContent = () => {
   return (
-    <main>
+    <main style={{ flex: 1, padding: '3em' }}>
       <Switch>
         <Route path="/blog">
           <BlogPage />
