@@ -1,7 +1,7 @@
 import { Box, TextField } from '@material-ui/core';
 import styled from 'styled-components';
 import Button from '@material-ui/core/Button';
-import { useState, ChangeEvent } from 'react';
+import useFormHandlerSignIn from './hooks/useFormHandlerSignIn';
 
 const DivMain = styled.div`
   display: flex;
@@ -28,21 +28,14 @@ const DivError = styled.div`
 `;
 
 export const SignInPage = () => {
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
-  const [error, setError] = useState<string | null>(null);
-
-  const handleEmailChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setEmail(event.target.value);
-  };
-
-  const handlePasswordChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setPassword(event.target.value)
-  };
-
-  const handleLogIn = () => {
-    setError('The user with this email does not exist or password is incorrect!');
-  };
+  const {
+    email,
+    password,
+    error,
+    handleEmailChange,
+    handlePasswordChange,
+    handleLogIn
+  } = useFormHandlerSignIn();
 
   return (
     <DivMain>

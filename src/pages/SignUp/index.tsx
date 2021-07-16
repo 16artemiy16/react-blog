@@ -23,11 +23,6 @@ const Form = styled.form`
   }
 `;
 
-const DivError = styled.div`
-  color: var(--error);
-`;
-
-
 const SignUpPage = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
