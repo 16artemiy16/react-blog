@@ -2,26 +2,7 @@ import { Box, TextField } from '@material-ui/core';
 import styled from 'styled-components';
 import Button from '@material-ui/core/Button';
 import useFormHandlerSignIn from './hooks/useFormHandlerSignIn';
-
-const DivMain = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-`;
-
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  width: 400px;
-  
-  & .MuiFormControl-root {
-    margin: 1em 0;
-  }
-  
-  & .MuiButton-root {
-    margin-top: 2em;
-  }
-`;
+import { DivMain, Form } from './styled';
 
 const DivError = styled.div`
   color: var(--error);

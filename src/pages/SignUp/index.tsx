@@ -1,27 +1,7 @@
-import styled from 'styled-components';
 import { TextField } from '@material-ui/core';
 import { ChangeEvent, useState } from 'react';
 import Button from '@material-ui/core/Button';
-
-const DivMain = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-`;
-
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  width: 400px;
-  
-  & .MuiFormControl-root {
-    margin: 1em 0;
-  }
-  
-  & .MuiButton-root {
-    margin-top: 2em;
-  }
-`;
+import { DivMain, Form } from './styled';
 
 const SignUpPage = () => {
   const [email, setEmail] = useState<string>('');
