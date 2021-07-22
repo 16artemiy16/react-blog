@@ -8,6 +8,10 @@ const SignUpPage = () => {
     email,
     password,
     passwordAgain,
+    isValidEmail,
+    isValidPassword,
+    isValidPasswordAgain,
+    isValidForm,
     handleEmailChange,
     handlePasswordChange,
     handlePasswordAgainChange,
@@ -19,11 +23,32 @@ const SignUpPage = () => {
       <h1>Sign Up</h1>
 
       <Form autoComplete="off">
-        <TextField label="Email" type="email" margin="normal" value={email} onChange={handleEmailChange} />
-        <TextField label="Password" type="password" margin="normal" value={password} onChange={handlePasswordChange}/>
-        <TextField label="Password again" type="password" margin="normal" value={passwordAgain} onChange={handlePasswordAgainChange}/>
+        <TextField
+          label="Email"
+          type="email"
+          margin="normal"
+          value={email}
+          onChange={handleEmailChange}
+          error={!isValidEmail}
+        />
+        <TextField
+          label="Password"
+          type="password"
+          margin="normal"
+          value={password}
+          onChange={handlePasswordChange}
+          error={!isValidPassword}
+        />
+        <TextField
+          label="Password again"
+          type="password"
+          margin="normal"
+          value={passwordAgain}
+          onChange={handlePasswordAgainChange}
+          error={!isValidPasswordAgain}
+        />
 
-        <Button variant="contained" color="primary" onClick={handleSignUp}>
+        <Button variant="contained" color="primary" onClick={handleSignUp} disabled={!isValidForm}>
           Sign Up
         </Button>
       </Form>
