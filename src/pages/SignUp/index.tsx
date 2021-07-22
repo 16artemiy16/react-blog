@@ -1,28 +1,18 @@
 import { TextField } from '@material-ui/core';
-import { ChangeEvent, useState } from 'react';
 import Button from '@material-ui/core/Button';
 import { DivMain, Form } from './styled';
+import useFormHandlerSignUp from './hooks/useFormHandlerSignUp';
 
 const SignUpPage = () => {
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
-  const [passwordAgain, setPasswordAgain] = useState<string>('');
-
-  const handleEmailChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setEmail(event.target.value);
-  };
-
-  const handlePasswordChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setPassword(event.target.value);
-  };
-
-  const handlePasswordAgainChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setPasswordAgain(event.target.value);
-  };
-
-  const handleSignUp = () => {
-
-  };
+  const {
+    email,
+    password,
+    passwordAgain,
+    handleEmailChange,
+    handlePasswordChange,
+    handlePasswordAgainChange,
+    handleSignUp
+  } = useFormHandlerSignUp()
 
   return (
     <DivMain>
