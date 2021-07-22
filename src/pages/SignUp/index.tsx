@@ -8,13 +8,16 @@ const SignUpPage = () => {
     email,
     password,
     passwordAgain,
-    isValidEmail,
-    isValidPassword,
-    isValidPasswordAgain,
+    isErrorEmail,
+    isErrorPassword,
+    isErrorPasswordAgain,
     isValidForm,
     handleEmailChange,
     handlePasswordChange,
     handlePasswordAgainChange,
+    setIsFocusedEmail,
+    setIsFocusedPassword,
+    setIsFocusedPasswordAgain,
     handleSignUp
   } = useFormHandlerSignUp()
 
@@ -29,7 +32,9 @@ const SignUpPage = () => {
           margin="normal"
           value={email}
           onChange={handleEmailChange}
-          error={!isValidEmail}
+          onFocus={() => setIsFocusedEmail(true)}
+          onBlur={() => setIsFocusedEmail(false)}
+          error={isErrorEmail}
         />
         <TextField
           label="Password"
@@ -37,7 +42,9 @@ const SignUpPage = () => {
           margin="normal"
           value={password}
           onChange={handlePasswordChange}
-          error={!isValidPassword}
+          onFocus={() => setIsFocusedPassword(true)}
+          onBlur={() => setIsFocusedPassword(false)}
+          error={isErrorPassword}
         />
         <TextField
           label="Password again"
@@ -45,7 +52,9 @@ const SignUpPage = () => {
           margin="normal"
           value={passwordAgain}
           onChange={handlePasswordAgainChange}
-          error={!isValidPasswordAgain}
+          onFocus={() => setIsFocusedPasswordAgain(true)}
+          onBlur={() => setIsFocusedPasswordAgain(false)}
+          error={isErrorPasswordAgain}
         />
 
         <Button variant="contained" color="primary" onClick={handleSignUp} disabled={!isValidForm}>
