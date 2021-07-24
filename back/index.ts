@@ -1,12 +1,11 @@
 import express from 'express';
-import v1 from './routes/v1';
-
-const PORT = 3000;
+import { connectRoutes } from './routes';
+import { DEFAULT_PORT } from './constants';
 
 const app = express();
 
-app.use('/', v1);
+connectRoutes(app);
 
-app.listen(PORT, () => {
-  console.log('React block BACK is running on PORT ' + PORT);
+app.listen(DEFAULT_PORT, () => {
+  console.log('React block BACK is running on PORT ' + DEFAULT_PORT);
 });
