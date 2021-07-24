@@ -1,9 +1,10 @@
 import express from 'express';
+import { getMe, logIn, logOut } from '../../controllers/auth.controller';
 const router = express.Router();
 
 router
-  .get('/auth/me', (req, res) => res.send('GET me'))
-  .post('/auth/log-in', (req, res) => res.send('POST log-in'))
-  .post('/auth/log-out', (req, res) => res.send('POST log-out'));
+  .get('/auth/me', getMe)
+  .post('/auth/log-in', logIn)
+  .post('/auth/log-out', logOut);
 
 export default router;
