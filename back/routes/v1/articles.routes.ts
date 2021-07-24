@@ -1,10 +1,11 @@
 import express from 'express';
+import { deleteArticles, getArticles, postArticles } from '../../controllers/articles.controller';
 const router = express.Router();
 
 router
   .route('/articles')
-  .get((req, res) => res.send('GET articles'))
-  .post((req, res) => res.send('POST articles'))
-  .delete((req, res) => res.send('DELETE articles'));
+  .get(getArticles)
+  .post(postArticles)
+  .delete(deleteArticles);
 
 export default router;
