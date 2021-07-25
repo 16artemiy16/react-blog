@@ -1,5 +1,5 @@
 import express from 'express';
-import { deleteArticles, getArticles, postArticles } from '../../controllers/articles.controller';
+import { deleteArticles, getArticles, postArticles, getArticleById } from '../../controllers/articles.controller';
 const router = express.Router();
 
 router
@@ -7,5 +7,7 @@ router
   .get(getArticles)
   .post(postArticles)
   .delete(deleteArticles);
+
+router.get('/articles/:id', getArticleById);
 
 export default router;
