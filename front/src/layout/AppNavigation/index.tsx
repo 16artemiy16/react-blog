@@ -28,7 +28,7 @@ export const AppNavigation = () => {
           React Blog
         </Typography>
         <DivMenuItems>
-          <Button color="inherit" component={Link} to="/blog">Blog</Button>
+          <Button color="inherit" component={Link} to="/articles">Blog</Button>
           <div className="spacer" />
           <Button color="inherit" component={Link} to="/sign-in">Sign In</Button>
           <Button color="inherit" component={Link} to="/sign-up">Sign Up</Button>

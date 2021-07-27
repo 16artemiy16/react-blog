@@ -2,6 +2,7 @@ import { Avatar, Card, CardContent, CardHeader, Chip, Container } from '@materia
 import IconButton from '@material-ui/core/IconButton';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme: Theme) => {
   return createStyles({
@@ -25,7 +26,7 @@ const useStyles = makeStyles((theme: Theme) => {
       fontWeight: 'bold',
     },
   });
-})
+});
 
 export const BlogPage = () => {
   const classes = useStyles();
@@ -87,7 +88,7 @@ export const BlogPage = () => {
   return (
     <Container className={classes.articlesList}>
       {articles.map((article) => (
-        <Card className={classes.article}>
+        <Card className={classes.article} key={article._id}>
           <CardHeader
             title={article.user.email}
             avatar={<Avatar>R</Avatar>}
@@ -102,10 +103,12 @@ export const BlogPage = () => {
           <CardContent>
             <div className={classes.articleTagsList}>
               {article.tags.map((tag) => (
-                <Chip className={classes.articleTag} label={tag} />
+                <Chip className={classes.articleTag} label={tag} key={tag} />
               ))}
             </div>
-            <h2 className={classes.articleTitle}>{article.title}</h2>
+            <Link to={`/articles/${article._id}`}>
+              <h2 className={classes.articleTitle}>{article.title}</h2>
+            </Link>
             <div>{article.description}</div>
           </CardContent>
         </Card>
