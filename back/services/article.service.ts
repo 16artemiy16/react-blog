@@ -6,3 +6,7 @@ export const getById = (id: string): Promise<any> => {
     .lean()
     .exec();
 };
+
+export const getMany = (): Promise<any> => {
+  return Article.find().lean().exec();
+};
